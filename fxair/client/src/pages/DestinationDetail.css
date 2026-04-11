@@ -1,0 +1,153 @@
+.dest-detail-page {
+  background: var(--color-black);
+}
+
+.dest-detail-hero {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 80px;
+  padding-top: var(--nav-height);
+}
+
+.dest-detail-hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.dest-detail-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dest-detail-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.3), rgba(10,10,10,0.88));
+}
+
+.dest-detail-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.back-link {
+  display: inline-block;
+  font-family: var(--font-condensed);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  margin-bottom: 24px;
+  transition: color var(--transition-fast);
+}
+
+.back-link:hover { color: var(--color-gold); }
+
+.dest-label {
+  font-family: var(--font-condensed);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.dest-detail-hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 20px;
+}
+
+.dest-detail-desc {
+  color: rgba(255,255,255,0.75);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.dest-book h2 em {
+  font-style: italic;
+  color: var(--color-gold-light);
+}
+
+.dest-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.dest-highlights-large {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--color-gray-light);
+}
+
+.highlight-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dest-airports {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.airport-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.airport-code {
+  font-family: var(--font-condensed);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--color-white);
+  border: 1px solid var(--color-gray-border);
+  padding: 6px 16px;
+}
+
+.travel-time-large {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-gold);
+  margin-top: 8px;
+}
+
+.page-not-found {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--nav-height);
+  background: var(--color-black);
+}
+
+.page-not-found h2 {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .dest-info-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
