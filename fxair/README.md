@@ -192,3 +192,4 @@ npm run build
 ---
 
 © 2026 FXAIR Clone — à des fins pédagogiques uniquement.
+# frontend
