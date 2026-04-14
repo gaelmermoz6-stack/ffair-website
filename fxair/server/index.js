@@ -49,8 +49,11 @@ app.use((err, req, res, next) => {
 });
 
 // ── Start ─────────────────────────────────
-app.listen(PORT, () => {
-  console.log(`\n  🛩  FXAIR Server running on port ${PORT}\n`);
-});
+// Remplace ton bloc "Start" actuel par celui-ci :
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`\n  🛩  FXAIR Server running on port ${PORT}\n`);
+  });
+}
 
 module.exports = app;
