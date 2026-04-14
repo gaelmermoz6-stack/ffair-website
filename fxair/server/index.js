@@ -1,22 +1,27 @@
-const express  = require('express');
-const cors     = require('cors');
-const dotenv   = require('dotenv');
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 
 dotenv.config();
+
+// Correction : La fonction s'appelle connectDB (comme l'import plus haut)
 connectDB();
 
-const app  = express();
+const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ── Middleware ────────────────────────────
 app.use(cors({
+  // Correction : Les clés d'objets JS doivent être en anglais (origin, credentials)
   origin: process.env.CLIENT_URL || 'http://localhost:3000',
   credentials: true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Correction : "if" au lieu de "si", "next" au lieu de "suivant"
 if (process.env.NODE_ENV !== 'production') {
   app.use((req, res, next) => {
     console.log(`${new Date().toISOString().slice(11,19)} ${req.method} ${req.path}`);
@@ -25,12 +30,12 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // ── Routes ────────────────────────────────
-app.use('/api/auth',         require('./routes/auth'));
-app.use('/api/flights',      require('./routes/flights'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/flights', require('./routes/flights'));
 app.use('/api/destinations', require('./routes/destinations'));
-app.use('/api/memberships',  require('./routes/memberships'));
-app.use('/api/contact',      require('./routes/contact'));
-app.use('/api/aircraft',     require('./routes/aircraft'));
+app.use('/api/memberships', require('./routes/memberships'));
+app.use('/api/contact', require('./routes/contact'));
+app.use('/api/aircraft', require('./routes/aircraft'));
 
 // ── Health check ──────────────────────────
 app.get('/api/health', (req, res) => {
@@ -48,12 +53,12 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// ── Start ─────────────────────────────────
-// Remplace ton bloc "Start" actuel par celui-ci :
+// ── Start (Seulement si pas en production) ──
 // if (process.env.NODE_ENV !== 'production') {
 //   app.listen(PORT, () => {
 //     console.log(`\n  🛩  FXAIR Server running on port ${PORT}\n`);
 //   });
 // }
 
+// INDISPENSABLE pour Vercel
 module.exports = app;
