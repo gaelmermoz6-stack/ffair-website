@@ -1,9 +1,6 @@
 const express = require('express');
-const app = express();
+const app = require('./index'); // Importez l'instance de votre serveur Express
 
-app.get('/api', (req, res) => {
-  res.send('Le serveur tourne enfin !');
-});
 
 // Important : Exportez l'instance pour Vercel
 module.exports = app;
